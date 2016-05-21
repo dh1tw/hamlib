@@ -19,6 +19,11 @@
  *
  */
 
+#ifdef SWIGGO
+//rename struct Rig to Radio to avoid name conflict with variable "rig"
+%rename("Radio") Rig;
+#endif
+
 %inline %{
 
 typedef struct Rig {
@@ -225,8 +230,9 @@ typedef channel_t * const_channel_t_p;
  */
 %extend Rig {
 
+#ifndef SWIG_CSTRING_UNIMPL
 	%cstring_bounded_output(char *returnstr, MAX_RETURNSTR);
-
+#endif
 	Rig(int rig_model) {
 		Rig *r;
 

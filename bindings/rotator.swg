@@ -19,6 +19,11 @@
  *
  */
 
+#ifdef SWIGGO
+//rename struct Rot to Rotator to avoid name conflict with variable "rot"
+%rename("Rotator") Rot;
+#endif
+
 %inline %{
 
 typedef struct Rot {
