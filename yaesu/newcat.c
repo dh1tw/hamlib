@@ -3543,7 +3543,7 @@ int newcat_get_tx_vfo(RIG * rig, vfo_t * tx_vfo) {
         return err;
       }
 
-    c = priv->ret_data[strlen (priv->cmd_str)];
+    c = priv->ret_data[strlen (priv->cmd_str)-1];
     switch (c) {
         case '0':
             *tx_vfo = RIG_VFO_A;
